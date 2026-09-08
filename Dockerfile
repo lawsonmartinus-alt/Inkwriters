@@ -2,7 +2,7 @@ FROM node:20-slim AS build
 WORKDIR /app
 
 COPY package.json package-lock.json* ./
-RUN npm ci --include=dev
+RUN npm install -g npm@latest && npm ci --include=dev
 
 COPY . .
 RUN npm run build
